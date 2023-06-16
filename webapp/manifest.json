@@ -99,6 +99,13 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "vuelos",
+          "pattern": "vuelos/{aerolinea}",
+          "target": [
+            "VuelosAerolinea"
+          ]
         }
       ],
       "targets": {
@@ -108,7 +115,15 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
+        },
+        "VuelosAerolinea": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Vuelos",
+          "viewName": "Vuelos"
         }
+
       }
     },
     "rootView": {

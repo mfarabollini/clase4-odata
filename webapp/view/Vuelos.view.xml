@@ -1,0 +1,77 @@
+<mvc:View controllerName="exaccs.clase4odata.controller.Vuelos"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Page>
+        <customHeader>
+            <Bar >
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onBack"></Button>
+                </contentLeft>
+                <contentMiddle>
+                    <Text text="{vuelos>Carrname}" ></Text>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+
+      
+        <Panel width="auto">
+        
+  
+
+            <Table id="vuelos" items="{vuelos>Vuelos}" class="sapUiSmallMarginTop" growing="true" growingThreshold="15">
+                <columns>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Connid}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Fldate}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Price}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Currency}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Seatsmax}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Seatsocc}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>SeatEmpty}"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <items >
+                    <ColumnListItem type="Detail">
+                        <cells>
+                            <Label text="{vuelos>Connid}"></Label>
+                            <Label text="{ path: 'vuelos>Fldate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"></Label>
+                            <Label text="{vuelos>Price}"></Label>
+                            <Label text="{vuelos>Currency}"></Label>
+                            <Label text="{vuelos>Seatsmax}"></Label>
+                            <Label text="{vuelos>Seatsocc}"></Label>
+                            <Label text="{= ${vuelos>Seatsmax} - ${vuelos>Seatsocc}}"></Label>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+
+    </Page>
+</mvc:View>
