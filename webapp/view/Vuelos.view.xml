@@ -11,7 +11,7 @@
                 <contentMiddle>
                     <Text text="{vuelos>Carrname}" ></Text>
                 </contentMiddle>
-            </Bar>
+            </Bar> 
         </customHeader>
 
       

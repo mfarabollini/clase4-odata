@@ -6,7 +6,7 @@ sap.ui.define(
       "use strict";
   
       return BaseController.extend("exaccs.clase4odata.controller.App", {
-        onInit() {
+        onInit() { 
         }
       });
     }

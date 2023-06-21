@@ -13,7 +13,7 @@ sap.ui.define([
             this.getView().bindElement({
                 path: "vuelos>/AerolineaSet('" + oEvent.getParameter("arguments").aerolinea + "')",
                 //path: "Orders(10643)",
-                //model: "nw"
+                //model: "nw" 
             });
         };
 

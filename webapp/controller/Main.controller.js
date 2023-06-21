@@ -16,7 +16,7 @@ sap.ui.define([
                 
                 const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("vuelos",{
-                    aerolinea: Aerolinea
+                    aerolinea: Aerolinea 
                 });
             },
         });

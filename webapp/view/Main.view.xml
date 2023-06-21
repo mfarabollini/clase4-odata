@@ -1,6 +1,6 @@
 <mvc:View xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"> 
     <Page id="page" title="{i18n>title}">
 
         <Panel headerText="{i18n>tblAerolineas}" class="sapUiSmallMarginTop">
