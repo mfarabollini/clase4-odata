@@ -1,18 +1,11 @@
 {
     "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Start testvuelos",
+            "name": "Start Vuelos",
             "type": "node",
             "request": "launch",
             "runtimeExecutable": "npx",
-            "cwd": "${workspaceFolder}/testvuelos",
+            "cwd": "${workspaceFolder}",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
             },
@@ -34,10 +27,10 @@
             }
         },
         {
-            "name": "Start testvuelos Mock",
+            "name": "Start Vuelos Mock",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/testvuelos",
+            "cwd": "${workspaceFolder}",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
@@ -61,10 +54,10 @@
             }
         },
         {
-            "name": "Start testvuelos Local",
+            "name": "Start Vuelos Local",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/testvuelos",
+            "cwd": "${workspaceFolder}",
             "runtimeExecutable": "npx",
             "windows": {
                 "runtimeExecutable": "npx.cmd"
