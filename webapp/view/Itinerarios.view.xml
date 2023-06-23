@@ -1,0 +1,66 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Itinerarios"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page">
+
+        <Panel headerText="{i18n>buscarVuelos}" class="sapUiSmallMargin">
+            <Table id="itinerarios" items="{path: 'vuelos>/ItinerarioSet', parameters: {
+           expand: 'VuelosSet'
+         } }" class="sapUiSmallMarginTop" growing="true" growingThreshold="15">
+                <columns>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>CarridItinerario}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Distance}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Connid}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Airpfrom}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Airpto}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Deptime}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Arrtime}"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <items >
+                    <ColumnListItem type="Navigation" press=".showVuelos">
+                        <cells>
+                            <Label text="{vuelos>Carrid}"></Label>
+                            <Label text="{vuelos>Distance}"></Label>
+                            <Label text="{vuelos>Connid}"></Label>
+                            <Label text="{vuelos>Airpfrom}"></Label>
+                            <Label text="{vuelos>Airpto}"></Label>
+                            <Label text="{vuelos>Deptime}"></Label>
+                            <Label text="{vuelos>Arrtime}"></Label>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+        <HBox id="vuelos">
+        </HBox>
+    </Page>
+</mvc:View>

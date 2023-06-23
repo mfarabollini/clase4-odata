@@ -1,0 +1,63 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Aerolineas"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+                <customHeader>
+            <Bar >
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onBack"></Button>
+                </contentLeft>
+                <contentMiddle>
+                    <Text text="{vuelos>Carrname}" ></Text>
+                </contentMiddle>
+            </Bar> 
+        </customHeader>
+        <Panel headerText="{i18n>tblAerolineas}" class="sapUiSmallMarginTop">
+            <Table id="tblAerolineas" items="{path: 'vuelos>/AerolineaSet', parameters: {
+           expand: 'Vuelos'
+         }}" mode="None" growing="true" growingThreshold="5">
+                <columns>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Carrid}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Carrname}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Currcode}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Url}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Vuelos}"></Label>
+                        </header>
+                    </Column>
+
+                </columns>
+                <items >
+                    <ColumnListItem type="{= ${vuelos>Vuelos}.length > 0 ? 'Navigation' : 'Inactive' }" press="navToVuelos">
+                        <cells>
+                            <Label text="{vuelos>Carrid}"></Label>
+                            <Label text="{vuelos>Carrname}"></Label>
+                            <Label text="{vuelos>Currcode}"></Label>
+                            <Label text="{vuelos>Url}"></Label>
+                            <Label text="{= ${vuelos>Vuelos}.length}"></Label>
+                        </cells>
+
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+
+    </Page>
+</mvc:View>

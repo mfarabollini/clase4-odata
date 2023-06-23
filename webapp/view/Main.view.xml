@@ -1,39 +1,50 @@
 <mvc:View xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m"> 
-    <Page id="page" title="{i18n>title}">
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page">
 
-        <Panel headerText="{i18n>tblAerolineas}" class="sapUiSmallMarginTop">
-            <Table id="tblAerolineas" items="{vuelos>/AerolineaSet}" mode="None">
-                <columns>
-                    <Column >
-                        <header>
-                            <Label text="{i18n>Carrid}"></Label>
-                        </header>
-                    </Column>
-                    <Column >
-                        <header>
-                            <Label text="{i18n>Carrname}"></Label>
-                        </header>
-                    </Column>
-                    <Column >
-                        <header>
-                            <Label text="{i18n>Currcode}"></Label>
-                        </header>
-                    </Column>
-                    
-                </columns>
-                <items >
-                    <ColumnListItem type="Navigation" press="navToVuelos">
-                        <cells>
-                            <Label text="{vuelos>Carrid}"></Label>
-                            <Label text="{vuelos>Carrname}"></Label>
-                            <Label text="{vuelos>Currcode}"></Label>
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+        <Panel headerText="{i18n>buscarVuelos}" class="sapUiSmallMargin"  width="20%">
+            <VBox justifyContent="Start">
+                <HBox justifyContent ="SpaceBetween">
+                    <Label text="Origen:" class="sapUiTinyMargin" />
+                    <Select id="fromCity" items="{vuelos>/CiudadSet}" selectedKey="{vuelos>/City}">
+                        <items>
+                            <core:Item key="{vuelos>City}" text="{vuelos>City}"/>
+                        </items>
+                    </Select>
+                </HBox>
+                <HBox justifyContent ="SpaceBetween">
+                    <Label labelFor="toCity" text="Destino:"  class="sapUiTinyMargin" />
+                    <Select id="toCity" items="{vuelos>/CiudadSet}" selectedKey="{vuelos>/City}">
+                        <items>
+                            <core:Item key="{vuelos>City}" text="{vuelos>City}"/>
+                        </items>
+                    </Select>
+                </HBox>
+                <HBox justifyContent ="End">
+                    <Button icon="sap-icon://search" type="Emphasized" text="{i18n>buscar}" press=".buscar"></Button>
+                </HBox>
+            </VBox>
         </Panel>
+        <Panel headerText="{i18n>Entidades}" class="sapUiSmallMargin" width="90%">
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" frameType= "OneByHalf" header="Aerolineas" press=".navToAerolineas">
+                <TileContent>
+                    <NumericContent value="{counterJson>/Aerolineas}" icon="sap-icon://flight" withMargin="false"/>
+                </TileContent>
+            </GenericTile>
 
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" frameType= "OneByHalf" header="Clientes" press=".navToClientes">
+                <TileContent>
+                    <NumericContent value="{counterJson>/Clientes}" icon="sap-icon://customer" withMargin="false"/>
+                </TileContent>
+            </GenericTile>
+
+            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" frameType= "OneByHalf" header="Aeropuertos" press=".navToAeropuertos">
+                <TileContent>
+                    <NumericContent value="{counterJson>/Aeropuertos}" icon="sap-icon://travel-itinerary" withMargin="false"/>
+                </TileContent>
+            </GenericTile>
+        </Panel>
     </Page>
 </mvc:View>

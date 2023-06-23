@@ -61,7 +61,7 @@
                     <ColumnListItem type="Detail">
                         <cells>
                             <Label text="{vuelos>Connid}"></Label>
-                            <Label text="{ path: 'vuelos>Fldate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"></Label>
+                            <Label text="{ path: 'vuelos>Fldate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true } }"></Label>
                             <Label text="{vuelos>Price}"></Label>
                             <Label text="{vuelos>Currency}"></Label>
                             <Label text="{vuelos>Seatsmax}"></Label>

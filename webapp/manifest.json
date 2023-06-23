@@ -72,7 +72,9 @@
       "vuelos": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "defaultCountMode": "Inline"
+        }
       }
     },
     "resources": {
@@ -107,6 +109,20 @@
           "target": [
             "VuelosAerolinea"
           ]
+        },
+        {
+          "name": "aerolineas",
+          "pattern": "aerolineas",
+          "target": [
+            "Aerolineas"
+          ]
+        },
+        {
+          "name": "itinerarios",
+          "pattern": "itinerarios/{cityFrom}/{cityTo}",
+          "target": [
+            "Itinerarios"
+          ]
         }
       ],
       "targets": {
@@ -123,6 +139,20 @@
           "clearControlAggregation": false,
           "viewId": "Vuelos",
           "viewName": "Vuelos"
+        },
+        "Aerolineas": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Aerolineas",
+          "viewName": "Aerolineas"
+        },
+        "Itinerarios": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Itinerarios",
+          "viewName": "Itinerarios"
         }
 
       }
