@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core" id="inputdialog">
+    <Dialog id="openDialog" title="{i18n>FormUpdateVuelo}">
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="SimpleFormDisplay354" editable="true" layout="ResponsiveGridLayout" title="{i18n>Vuelo}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                <f:content>
+                    <Label text="Aerolinea" labelFor="carrid"/>
+                    <Text id="carrid" text="{vuelos>Carrid}"/>
+                    <Label text="Conexion" labelFor="connid"/>
+                    <Text id="connid" text="{vuelos>Connid}" />
+                    <Label text="Fecha Vuelo" labelFor="fldate" />
+                    <Text id="fldate" text="{ path: 'vuelos>Fldate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true } }"/>
+                    <Label text="Precio" labelFor="Precio" />
+                    <Input id="price" value="{vuelos>Price}"/>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <buttons>
+            <Button text="Update" press=".updateDialog"/>
+            <Button text="Cancel" press=".closeDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

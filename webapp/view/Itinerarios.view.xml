@@ -60,7 +60,15 @@
                 </items>
             </Table>
         </Panel>
-        <HBox id="vuelos">
+        <HBox id="switch" class="sapUiSmallMargin" visible="false">
+            <Label text="Tabla con Binding: " class="sapUiTinyMargin"/>
+            <Switch state="{viewModel>/state}" type="AcceptReject">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </Switch>
         </HBox>
+        <HBox id="box1" visible="{= !${viewModel>/state}}"/>
+        <HBox id="box2" visible="{viewModel>/state}"/>
     </Page>
 </mvc:View>
