@@ -53,8 +53,8 @@
                             <Label text="{vuelos>Connid}"></Label>
                             <Label text="{vuelos>Airpfrom}"></Label>
                             <Label text="{vuelos>Airpto}"></Label>
-                            <Label text="{vuelos>Deptime}"></Label>
-                            <Label text="{vuelos>Arrtime}"></Label>
+                            <Label text="{ path: 'vuelos>Deptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'medium' }}"></Label>
+                            <Label text="{ path: 'vuelos>Arrtime', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'medium' }}"></Label>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -70,5 +70,6 @@
         </HBox>
         <HBox id="box1" visible="{= !${viewModel>/state}}"/>
         <HBox id="box2" visible="{viewModel>/state}"/>
+
     </Page>
 </mvc:View>

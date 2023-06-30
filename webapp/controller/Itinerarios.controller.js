@@ -270,7 +270,10 @@ sap.ui.define(
         this.getView()
           .getModel("vuelos")
           .create("/ReservasSet", body, {
-            success: function (oResult) {
+            success: function (oResult, oResp) {
+             // oResult devulve la entidad creada  
+             // oResp info sobre la REST (status code 201 ok) 
+
               //Vuelve sin error (oResult tiene la entidad creada)
               MessageToast.show("Se creo la reserva " + oResult.Bookid);
               sap.ui.getCore().byId("tblVuelos").getBinding("items").refresh();
@@ -294,7 +297,9 @@ sap.ui.define(
           .getModel("vuelos")
           .remove(oVueloSelected, {
             method: "DELETE",
-            success: function (oResult) {
+            success: function (oResult, oResp)  {
+             // oResult devulve la entidad  que en el delete no la devuelve, 
+             // oResp info sobre la REST (status code 204 ok, pero sin respuesta) 
               debugger;
               MessageToast.show("Se borro el vuelo");
               sap.ui.getCore().byId("tblVuelos").getBinding("items").refresh();
@@ -353,7 +358,10 @@ sap.ui.define(
       this.getView()
         .getModel("vuelos")
         .update(oVueloPath, body, {
-          success: function (oResult) {
+          success: function (oData, oResp) {
+             // oResult devulve la entidad que en el update no la devuelve, 
+             // oResp info sobre la REST (status code 204 ok, pero sin respuesta) 
+
             //Vuelve sin error (oResult tiene la entidad creada)
             MessageToast.show("Vuelo modificado");
             sap.ui.getCore().byId("tblVuelos").getBinding("items").refresh();
