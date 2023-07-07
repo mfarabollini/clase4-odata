@@ -12,7 +12,7 @@
                 </contentMiddle>
             </Bar> 
         </customHeader>
-        <Panel headerText="{i18n>tblAerolineas}" class="sapUiSmallMarginTop">
+        <Panel headerText="{i18n>tblAerolineas}" class="sapUiSmallMarginTop" height="60%">
             <Table id="tblAerolineas" items="{path: 'vuelos>/AerolineaSet', parameters: {
            expand: 'Vuelos'
          }}" mode="None" growing="true" growingThreshold="5">

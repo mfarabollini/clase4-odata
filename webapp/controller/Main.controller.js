@@ -11,6 +11,8 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("exaccs.clase4odata.controller.Main", {
+      onInit: function () {},
+
       onAfterRendering: function () {
         this.getView().setModel(models.createCounter(), "counterJson");
 
@@ -53,33 +55,43 @@ sap.ui.define(
       },
 
       buscar: function (oEvent) {
-               
-        var cityFrom = this.getView().byId('fromCity').getSelectedKey();
-        var cityTo = this.getView().byId('toCity').getSelectedKey();
-  
-        var filters = new Array(); 
-        var filter = new sap.ui.model.Filter("Cityfrom", sap.ui.model.FilterOperator.EQ, cityFrom);
-        filters.push(filter);  
-        var filter = new sap.ui.model.Filter("Cityto", sap.ui.model.FilterOperator.EQ, cityTo);
-        filters.push(filter);  
+        var cityFrom = this.getView().byId("fromCity").getSelectedKey();
+        var cityTo = this.getView().byId("toCity").getSelectedKey();
 
+        var filters = new Array();
+        var filter = new sap.ui.model.Filter(
+          "Cityfrom",
+          sap.ui.model.FilterOperator.EQ,
+          cityFrom
+        );
+        filters.push(filter);
+        var filter = new sap.ui.model.Filter(
+          "Cityto",
+          sap.ui.model.FilterOperator.EQ,
+          cityTo
+        );
+        filters.push(filter);
 
         var oDataModel = this.getView().getModel("vuelos");
         oDataModel.read("/ItinerarioSet/", {
-          filters:  filters,
+          filters: filters,
           success: function (oResult) {
-            if(oResult.results.length === 0){
-              MessageToast.show("No hay Vuelos para esos destinos")
-            }else{
+            if (oResult.results.length === 0) {
+              MessageToast.show("No hay Vuelos para esos destinos");
+            } else {
               const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
               oRouter.navTo("itinerarios", {
                 cityFrom: cityFrom,
-                cityTo: cityTo
+                cityTo: cityTo,
               });
             }
           }.bind(this),
           error: function (oErr) {},
         });
+      },
+      navToLaboratorio: function (evt) {
+        const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        oRouter.navTo("laboratorio");
       },
     });
   }

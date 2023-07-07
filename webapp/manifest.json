@@ -123,6 +123,13 @@
           "target": [
             "Itinerarios"
           ]
+        },
+        {
+          "name": "laboratorio",
+          "pattern": "laboratorio",
+          "target": [
+            "Laboratorio"
+          ]
         }
       ],
       "targets": {
@@ -153,6 +160,13 @@
           "clearControlAggregation": false,
           "viewId": "Itinerarios",
           "viewName": "Itinerarios"
+        },
+        "Laboratorio": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Laboratorio",
+          "viewName": "Laboratorio"
         }
 
       }
