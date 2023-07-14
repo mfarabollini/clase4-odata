@@ -130,7 +130,15 @@
           "target": [
             "Laboratorio"
           ]
+        },
+        {
+          "name": "clienteDetail",
+          "pattern": "cliente/{id}",
+          "target": [
+            "Cliente"
+          ]
         }
+        
       ],
       "targets": {
         "TargetMain": {
@@ -167,6 +175,13 @@
           "clearControlAggregation": false,
           "viewId": "Laboratorio",
           "viewName": "Laboratorio"
+        },
+        "Cliente": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ClienteDetail",
+          "viewName": "ClienteDetail"
         }
 
       }

@@ -1,0 +1,96 @@
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.ClienteDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout">
+    <Page id="page">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onBack"></Button>
+                </contentLeft>
+                <contentRight>
+                    <Button id="edit" text="Editar" visible="{= !${viewModel>/editmode}}" press="handleEditPress" />
+                    <Button id="save" text="Guardar" type="Emphasized" visible="{viewModel>/editmode}" press="handleSavePress" />
+                    <Button id="cancel" text="Cancelar" visible="{viewModel>/editmode}" press="handleCancelPress" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="formEditCliente" editable="true" layout="ResponsiveGridLayout" title="{vuelos>Id} - {vuelos>Name}" labelSpanL="4" labelSpanM="3">
+                <f:content>
+                    <core:Title text="Editar Cliente" />
+                    <Label text="ID" labelFor="id"/>
+                    <Text id="id" text="{vuelos>Id}"/>
+
+                    <Label text="Cliente" labelFor="name"/>
+                    <Text id="name" text="{vuelos>Name}" />
+
+                    <Label text="Calle" labelFor="street"/>
+                    <Input id="street" value="{vuelos>Street}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L6 M6 S12"/>
+                        </layoutData>
+                    </Input>
+
+                    <Label text="Ciudad" labelFor="city"/>
+                    <Input id="city" value="{vuelos>City}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L4 M4 S8"/>
+                        </layoutData>
+                    </Input>
+                    <Input id="country" value="{vuelos>Country}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L2 M2 S4"/>
+                        </layoutData>
+                    </Input>
+
+                    <Label text="Telefono" labelFor="telephone" />
+                    <Input id="telephone" value="{vuelos>Telephone}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L6 M6 S12"/>
+                        </layoutData>
+                    </Input>
+
+                    <Label text="Tipo de Cliente" labelFor="tipo"/>
+                    <Select id="tipo" selectedKey="{vuelos>Custtype}" enabled="{viewModel>/editmode}">
+                        <core:Item key="P" text="Particular" />
+                        <core:Item key="B" text="Empresa" />
+                        <core:Item key="" text="Desconocido" />
+
+                        <layoutData>
+                            <l:GridData span="L6 M6 S12"/>
+                        </layoutData>
+
+                    </Select>
+
+                    <Label text="Descuento" labelFor="descuento"/>
+                    <Slider value="{ path: 'vuelos>Discount',
+                                        formatter: '.convToInt'}" width="100%" min="0" max="100" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L6 M6 S12"/>
+                        </layoutData>
+                    </Slider>
+
+
+
+                    <Label text="Email" labelFor="email"/>
+                    <Input id="email" value="{vuelos>Email}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L6 S12"/>
+                        </layoutData>
+                    </Input>
+
+                    <Label text="Web" labelFor="web"/>
+                    <Input id="web" value="{vuelos>Webuser}" enabled="{viewModel>/editmode}">
+                        <layoutData>
+                            <l:GridData span="L6 M6 S12"/>
+                        </layoutData>
+                    </Input>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+    </Page>
+</mvc:View>

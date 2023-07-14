@@ -1,14 +1,13 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Laboratorio"
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table" controllerName="exaccs.clase4odata.controller.Laboratorio"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <Panel headerText="{i18n>tblClientes}" class="sapUiSmallMargin" width="auto"  height="50%">
+        <Panel headerText="{i18n>tblClientes}" class="sapUiSmallMargin" width="auto" height="50%">
 
             <Table id="tblClientes" items="{path: 'vuelos>/ClienteSet', 
-                                            parameters: { expand: 'IntegrantesSet' }}" 
-                                    growing="true" 
-                                    growingThreshold="20" >
-              
+                                            parameters: { expand: 'IntegrantesSet' } }" growing="true" growingThreshold="15">
+
                 <columns>
                     <Column >
                         <header>
@@ -27,18 +26,59 @@
                     </Column>
                     <Column >
                         <header>
-                            <Label text="{i18n>CustType}"></Label>
+                            <Label text="{i18n>City}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Country}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Telephone}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Custtype}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Discount}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Email}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Webuser}"></Label>
                         </header>
                     </Column>
                 </columns>
                 <items >
-                    <ColumnListItem type="  {= ${vuelos>Country} === 'DE' ? 'DetailAndActive' : 'Detail' }" press="navToIntegrantes" detailPress="">
+                    <ColumnListItem type="{= ${vuelos>Custtype} === 'P' ? 'DetailAndActive' : 'Detail' }" 
+                    press="navToIntegrantes" 
+                    detailPress="navToDetalle">
                         <cells>
                             <Label text="{vuelos>Id}"></Label>
                             <Label text="{vuelos>Name}"></Label>
                             <Label text="{vuelos>Street}"></Label>
+                            <Label text="{vuelos>City}"></Label>
                             <Label text="{vuelos>Country}"></Label>
-                           </cells>
+                            <Label text="{vuelos>Telephone}"></Label>
+                            <Label text="{ path: 'vuelos>Custtype', formatter: '.formatTipoCliente'}" />
+                            <ObjectStatus 
+                                text="{ path: 'vuelos>Discount', formatter: '.formatDescuento'}" 
+                                state="{= ${vuelos>Discount} === '000' ? 'Error' : 'Success' }" 
+                                inverted="true"/>
+                            <Label text="{vuelos>Email}"></Label>
+                            <Label text="{vuelos>Webuser}"></Label>
+                        </cells>
                     </ColumnListItem>
                 </items>
             </Table>
@@ -48,10 +88,11 @@
                 <OverflowToolbar >
                     <Title text="{i18n>tblIntegrantes}"></Title>
                     <ToolbarSpacer />
-                    <Button text="Create" press="createIntegrante"></Button>
+                    <Button text="Create" press="createIntegrante" type="Emphasized" />
                 </OverflowToolbar>
             </headerToolbar>
-            <Table id="tblIntegrantes" items="{vuelos>IntegrantesSet}" mode="None" growing="true" growingThreshold="20">
+            <Table id="tblIntegrantes" items="{vuelos>IntegrantesSet}" mode="Delete" delete="onDelIntegrante" 
+            growing="true" growingThreshold="20">
                 <columns>
                     <Column >
                         <header>
@@ -73,7 +114,7 @@
                             <Label text="{i18n>Sexo}"></Label>
                         </header>
                     </Column>
-                    </columns>
+                </columns>
                 <items >
                     <ColumnListItem type="Inactive">
                         <cells>

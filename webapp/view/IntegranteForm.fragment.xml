@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core" id="inputdialog">
+    <Dialog id="formIntegrantes" contentWidth="40%" afterClose="inClose">
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="SimpleFormDisplay354" layout="ResponsiveGridLayout" title="{i18n>Vuelo}" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="true">
+                <f:content>
+                    <core:Title text="Cliente" />
+                    <Label text="ID" labelFor="id"/>
+                    <Text id="id" text="{vuelos>Id}"/>
+                    <Label text="Cliente" labelFor="name"/>
+                    <Text id="name" text="{vuelos>Name}" />
+
+                    <core:Title text="Integrante" />
+                    <Label text="Nombre" labelFor="name_int" />
+                    <Input id="name_int" required="true" />
+
+                    <Label text="Relacion" labelFor="relacion" />
+                    <Select id="relacion">
+                        <core:Item key="0" text="Hijo/a" />
+                        <core:Item key="1" text="Esposo/a" />
+                        <core:Item key="2" text="Otro" />
+                    </Select>
+
+                    <Label text="Fecha Nacimiento" labelFor="fec_nac" />
+                    <DatePicker id="fec_nac" class="sapUiSmallMarginBottom"/>
+
+                    <Label text="Sexo" labelFor="sexo" />
+                    <Select id="sexo">
+                        <core:Item key="M" text="Masculino" />
+                        <core:Item key="F" text="Femenino" />
+                        <core:Item key="O" text="Otro" />
+                    </Select>
+
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <buttons>
+            <Button text="Crear" press=".crearIntegrante"/>
+            <Button text="Cancel" press=".closeDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
