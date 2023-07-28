@@ -68,7 +68,7 @@
 
                     <Label text="Descuento" labelFor="descuento"/>
                     <Slider value="{ path: 'vuelos>Discount',
-                                        formatter: '.convToInt'}" width="100%" min="0" max="100" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" enabled="{viewModel>/editmode}">
+                                        formatter: '.convToInt'}" id="discount" width="100%" min="0" max="100" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" enabled="{viewModel>/editmode}">
                         <layoutData>
                             <l:GridData span="L6 M6 S12"/>
                         </layoutData>

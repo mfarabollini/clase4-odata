@@ -27,14 +27,14 @@ sap.ui.define(
       },
       navToIntegrantes: function (evt) {
         //Seteamos como Visible el Panel
-        const oPnlIntegrantes = this.getView().byId("pnlInteg");
+         const oPnlIntegrantes = this.getView().byId("pnlInteg");
         oPnlIntegrantes.setVisible(true);
 
         //Obtenemos la Tabla y le aociamos el como contexto el Cliente, para obtener los integrantes
         const oTblIntegrantes = this.getView().byId("tblIntegrantes");
         oTblIntegrantes.bindElement(
           "vuelos>" + evt.getSource().getBindingContextPath()
-        );
+        ); 
 
         //Ejemplos de info que podemos obtener aqui
         //evt.getSource().getBindingContext("vuelos").getObject({ expand: "IntegrantesSet"}).IntegrantesSet.length
